@@ -1,18 +1,22 @@
 header{
-    background: #255957;
-    background: linear-gradient(152deg, rgba(37, 89, 87, 1) 0%, rgba(67, 124, 144, 1) 100%);
     color: #fff;
     padding:100px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap:20px;
+    background-color: #437C90;
+    opacity: 1;
+    background-image:  radial-gradient(25% 50%, #255957 98%, transparent), radial-gradient(25% 50%, #437C90 98%, transparent), repeating-conic-gradient(#255957 0 25%, #437C90 0 50%);
+    background-position: 30px 0, 0 0, 0 0;
+    background-size: 60px 30px, 60px 30px, 60px 60px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 header h1{
     color: #fff;
     font-size:3rem;
     letter-spacing: 1px;
-    text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
 }
 header p{
     font-size: 1.2rem;

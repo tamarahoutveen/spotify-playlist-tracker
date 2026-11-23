@@ -1,8 +1,16 @@
 # Spotify Playlist Tracker
 
-A fun hobby React app where I'm going to connect Spotify playlists (.csv) and organize my music. The idea is that I want to see which music I already own, which music I want to buy etc. 
+Fun, hobby React app to browse my exported Spotify playlist tracks (.csv files), sort them by artist or track name, and keep track of which tracks or albums I've already bought or own.
 
-## First steps: opening the CSV files
+## Features
 
-In order to open the CSV files that Spotify exports, I'm going to use a plugin. The idea is to import that plugin and use it to open the csv files. I want to load the csv file data and map the results into separate cards/components. I would love to filter the results and set a select option (bought/don't own etc.)
+- Loads an exported Spotify playlist CSV file using Vite and PapaParse
+- Displays tracks as cards with a track title, artist, and album artist (when it differs from the track artist)
+- Sortable by artist or track name 
+- Purchase status dropdown per track
 
+## Planned Improvements
+
+- Tracking the purchase status of each track and storing that data.
+- Filtering by purchase status
+- Additional track details and collection overview features

@@ -6,6 +6,7 @@ import playlistUrl from './assets/sample-playlist.csv?url';
 function App() {
 
     const [tracks, setTracks] = useState([]);
+    const [sortField, setSortField] = useState(null);
 
     useEffect(() => {
         async function fetchPlaylist() {
@@ -32,6 +33,19 @@ function App() {
         fetchPlaylist();
     }, []);
 
+    function sortData(type) {
+        setSortField((prev) => (prev === type ? null : type));
+    }
+
+    const displayedTracks = [...tracks].sort((a, b) => {
+        if (!sortField) return 0;
+
+        const valueA = (a[sortField] || '').toString();
+        const valueB = (b[sortField] || '').toString();
+
+        return valueA.localeCompare(valueB, 'nl', { sensitivity: 'base' });
+    });
+
     return (
         <>
             <header>
@@ -40,13 +54,13 @@ function App() {
             </header>
             <main>
                 <div className="playlist-filters">
-                    <button type="button" className="filter-button">Sorteer op artiest</button>
-                    <button type="button" className="filter-button">Sorteer op nummer</button>
+                    <button type="button" className="filter-button" onClick={() => sortData('Naam van artiest')}>Sorteer op artiest</button>
+                    <button type="button" className="filter-button" onClick={() => sortData('Nummernaam')}>Sorteer op nummer</button>
                     <button type="button" className="filter-button">Filter niet gekochte nummers</button>
                     <button type="button" className="filter-button">Filter gekochte muziek</button>
                 </div>
                 <div className="playlist">
-                    {tracks.map((track, index) => (
+                    {displayedTracks.map((track, index) => (
                         <article key={track['Nummer URI'] || index} className="track-card">
                             <h3> {track['Nummernaam']} </h3>
                             <p>Artiest: {track['Naam van artiest']}</p>
